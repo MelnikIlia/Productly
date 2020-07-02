@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<script>document.documentElement.classList.remove("no-js");</script>
+
+		<link
+			rel="shortcut icon"
+			href="img/Icons/logo-icon.svg"
+			type="image/svg+xml"
+		/>
+		<title>Productly</title>
+		
+		<!-- Normalize -->
+		<style type="text/css">
+			/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+			html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{-webkit-box-sizing:content-box;box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{-webkit-box-sizing:border-box;box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{-webkit-box-sizing:border-box;box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}
+		</style>
+		
+		<!-- Reset -->
+		<style type="text/css">
+			/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 | License: none (public domain) */
+			a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}a{text-decoration:none}b,strong{font-weight:900}
+		</style>
+
+		<!-- Fonts -->
+		<link
+			rel="preload"
+			as="style"
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+			crossorigin="anonymous"
+		/>
+
+		<noscript>
+			<link
+				href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+				rel="stylesheet"
+				crossorigin="anonymous"
+			/>
+		</noscript>
+
+		<link
+			type="image/png"
+			rel="preload"
+			as="image"
+			href="img/Content/Hero.png"
+			onload="this.load=null;this.rel='stylesheet'"
+		/>
+		
+		<!-- Critical CSS -->
+		<style>
+			*{-webkit-box-sizing:border-box;box-sizing:border-box}body{font-family:"Poppins",sans-serif;}body.lock{overflow:hidden}.image-wrapper{height:100%}.image-wrapper img,.image-wrapper picture{width:100%;height:100%}.container{width:100%;padding:0 20px;overflow-x:hidden}.row{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-wrap:wrap;flex-wrap:wrap}.column{-webkit-box-flex:0;-ms-flex:0 0 100%;flex:0 0 100%}.d-flex{display: flex}.space-between{justify-content: space-between}.button{display:block;width:-webkit-max-content;width:-moz-max-content;width:max-content;box-sizing:content-box;padding:10px 20px;border:1px solid #bcd0e5;border-radius:4px;font-weight:400;font-size:16px;color:#173a56;transition:.3s;cursor:pointer}.button:hover{color:#fff;border-color:#ee7307;background-color:#ee7307}.button--accent{color:#fff;border-color:#f90;background-color:#f90}.brand-logo{font-size:28px;line-height:30px;font-weight:600;color:#173a56;z-index:3}.brand-logo-icon{display:inline-block;vertical-align:top}.burger-menu{display:block;width:30px;height:20px;position:relative;cursor:pointer;z-index:3}.burger-menu span,.burger-menu::after,.burger-menu::before{width:100%;height:1px;background-color:#2f281e;position:absolute;transition:top .2s ease .2s,transform .2s ease}.burger-menu::after,.burger-menu::before{content:'';display:block}.burger-menu span{top:10px}.burger-menu::before{top:0}.burger-menu::after{top:19px}.burger-menu.active span,.burger-menu.active::after,.burger-menu.active::before{transition:top .2s ease,transform .2s ease .2s}.burger-menu.active span{transform:scale(0)}.burger-menu.active::before{top:10px;transform:rotate(45deg)}.burger-menu.active::after{top:10px;transform:rotate(-45deg)}.nav{height:78px;width:100%;align-items:center;margin-bottom:30px;box-sizing:border-box;z-index:3}.nav::before{content:'';display:block;width:100%;height:78px;position:absolute;left:0;background-color:#fff;z-index:3}.nav__menu{height:100%;width:100%;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;position:fixed;top:-100%;background-color:#fff;overflow:hidden;z-index:0;transition:all .4s ease-in}.nav__menu.active{margin:0 auto;top:85px;z-index:2}.nav__list{display:block;flex:0;}.nav__list-item{display:block;margin:20px 0}.nav__link{color:#2f281e;font-size:18px}.register{display:flex;flex:0;flex-direction:column;justify-content:space-between}.register__button{font-size:18px}.register__button:first-child{margin-right:10px;margin-bottom:20px}.hero{margin-bottom:40px}.play-video-icon{display:inline-block;vertical-align:sub}.hero__row{flex-direction:column-reverse;padding:0 20px}.hero__column{flex: 0 0 90%}.hero__img{margin-bottom:50px}.hero__title{font-size:34px;line-height:44px;color:#2f281e;margin-bottom:25px}.hero__text{margin-bottom:40px;font-weight:300;font-size:18px;line-height:28px;color:#544837}.hero__button, .hero__link--active{font-size:14px;display:inline-block}.hero__button{margin-right:30px}.hero__link--accent{text-decoration:underline;color:#f90}.hero__link--accent{display:block;margin-top:15px}
+		</style>
+
+		<style media="screen and (min-width: 768px)">
+			.button{padding:12px 25px}.hero{margin-bottom:100px}.hero__row{flex-direction:row;align-items:center;padding:0}.hero__column{flex-basis: 47%}.hero__title{font-size:44px;line-height:54px}
+		</style>
+
+		<style media="screen and (min-width: 1025px)">
+			.container{padding:0 10.357142857142858%}.burger-menu{display:none}.nav__menu{max-width:605px;flex-direction:row;justify-content:space-between;align-items:center;position:static;overflow:visible;z-index:3}.nav__menu.active{z-index:3}.nav__list{display:flex;justify-content:space-between;flex:0 0 57.85123966942148%}.nav__list-item{display:inline-block;margin-right:10px}.nav__list-item:last-child{margin-right:0}.register{flex-direction:row;flex:0 0 37.1900826446281%}.register__button{display:inline-block}.register__button:first-child{margin-bottom:0}.hero__img{margin-bottom:0}.hero__link--accent{display:inline-block;margin-top:0}
+		</style>
+
+		<style media="screen and (min-width: 481px) and (max-width: 767px)">
+			.hero__column{flex-basis: 75%}
+		</style>
+
+		<style media="screen and (max-width: 480px)">
+			.nav{padding: 0 20px}
+		</style>
+
+		<link
+			type="text/css"
+			rel="preload"
+			as="style"
+			href="css/style.min.css"
+			onload="this.load=null;this.rel='stylesheet'"
+		/>
+
+		<noscript>
+			<link
+				type="text/css"
+				rel="stylesheet"
+				href="css/style.min.css"
+			/>
+		</noscript>
+
+		<script>
+			/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+			(function(a){if(!a.loadCSS){a.loadCSS=function(){}}var b=loadCSS.relpreload={};b.support=(function(){var d;try{d=a.document.createElement("link").relList.supports("preload")}catch(f){d=false}return function(){return d}})();b.bindMediaToggle=function(e){var f=e.media||"all";function d(){e.media=f}if(e.addEventListener){e.addEventListener("load",d)}else{if(e.attachEvent){e.attachEvent("onload",d)}}setTimeout(function(){e.rel="stylesheet";e.media="only x"});setTimeout(d,3000)};b.poly=function(){if(b.support()){return}var d=a.document.getElementsByTagName("link");for(var e=0;e<d.length;e++){var f=d[e];if(f.rel==="preload"&&f.getAttribute("as")==="style"&&!f.getAttribute("data-loadcss")){f.setAttribute("data-loadcss",true);b.bindMediaToggle(f)}}};if(!b.support()){b.poly();var c=a.setInterval(b.poly,500);if(a.addEventListener){a.addEventListener("load",function(){b.poly();a.clearInterval(c)})}else{if(a.attachEvent){a.attachEvent("onload",function(){b.poly();a.clearInterval(c)})}}}if(typeof exports!=="undefined"){exports.loadCSS=loadCSS}else{a.loadCSS=loadCSS}}(typeof global!=="undefined"?global:this));
+		</script>
+
+		<!-- Slick carousel -->
+		<link type="text/css" rel="stylesheet" href="slick/slick.min.css" />
+		<link type="text/css" rel="stylesheet" href="slick/slick-theme.min.css" />
+		<link type="text/css" rel="stylesheet" href="css/slick-customize.min.css" />
+	</head>
+	<body>
+		<!--[if lt IE 7]>
+			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+		<header class="header container">
+			<nav class="nav row">
+				<a href="#" class="brand-logo">
+					<img class="brand-logo-icon" type="image/svg+xml" src="img/Icons/logo-icon.svg" alt="" />
+					Productly
+				</a>
+				<div class="burger-menu"><span></span></div>
+				<div class="nav__menu">
+					<ul class="nav__list">
+						<li class="nav__list-item">
+							<a class="nav__link" href="#">Product</a>
+						</li>
+						<li class="nav__list-item">
+							<a class="nav__link" href="#">Customers</a>
+						</li>
+						<li class="nav__list-item">
+							<a class="nav__link" href="#">Pricing</a>
+						</li>
+						<li class="nav__list-item">
+							<a class="nav__link" href="#">Resources</a>
+						</li>
+					</ul>
+					<div class="nav__register register">
+						<a class="register__button button" id="logIn" href="#">Sign In</a>
+						<a class="register__button button button--accent"
+							id="signUp"
+							href="#">
+							Sign Up
+						</a>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<div class="modal-register">
+			<div class="form-login">
+				<span class="modal-close"></span>
+				<h2 class="form__title">Welcome</h2>
+				<form action="">
+					<label class="form__label" for="login-login">Login</label>
+					<input
+						class="form__input"
+						id="login-login"
+						type="text"
+						name="login"
+						placeholder="Login" />
+					<label class="form__label" for="login-password">Password</label>
+					<input
+						class="form__input"
+						id="login-password"
+						type="password"
+						name="password"
+						placeholder="Password" />
+					<a class="form-login__link" href="#">Forget password?</a>
+					<input
+						class="button button--accent form__button"
+						type="button"
+						name="submit"
+						value="Log in"
+					/>
+				</form>
+				<div class="form-footer">
+					<p class="form-footer__text">Don't have an account?</p>
+					<a class="form-login__link" href="#">Sign up</a>
+				</div>
+			</div>
+			<div class="form-sign-up">
+				<span class="modal-close"></span>
+				<h2 class="form__title">Sign Up</h2>
+				<form action="">
+					<label class="form__label" for="signUp-email">E-mail</label>
+					<input
+						class="form__input"
+						id="signUp-email"
+						type="email"
+						name="email"
+						placeholder="E-mail" />
+					<label class="form__label" for="signUp-name">Full Name</label>
+					<input
+						class="form__input"
+						id="signUp-name"
+						type="text"
+						name="name"
+						placeholder="Full Name" />
+					<label class="form__label" for="signUp-login">Login</label>
+					<input
+						class="form__input"
+						id="signUp-login"
+						type="text"
+						name="login"
+						placeholder="Login" />
+					<label class="form__label" for="signUp-password">Password</label>
+					<input
+						class="form__input"
+						id="signUp-password"
+						type="password"
+						name="password"
+						placeholder="Password" />
+					<input
+						class="button button--accent form__button"
+						type="button"
+						name="submit"
+						value="Sign up"
+					/>
+				</form>
+			</div>
+		</div>
+
+		<main class="container">
+
+			<!-- Hero start -->
+			<div class="hero">
+				<div class="hero__row row">
+					<div class="hero__column column">
+						<h1 class="content__title hero__title">
+							The Design Thinking superpowers
+						</h1>
+						<p class="hero__text">
+							Tools, tutorials, design and innovation experts, all in one place!
+							The most intuitive way to imagine your next user experience.
+						</p>
+						<a class="hero__button button button--accent" href="#">Get started</a>
+						<a class="hero__link--accent" href="#">
+							<svg
+								class="play-video-icon"
+								width="17"
+								height="19"
+								viewBox="0 0 17 19"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg" >
+								<path
+									fill-rule="evenodd"
+									clip-rule="evenodd"
+									d="M15.8516 8.53032C16.591 8.96531 16.591 10.0347 15.8516 10.4697L2.1954 18.5027C1.44543 18.9439 0.5 18.4031 0.5 17.533V1.46697C0.5 0.596876 1.44543 0.0561381 2.1954 0.497293L15.8516 8.53032Z"
+									fill="#FF9900" />
+							</svg>
+							Watch the Video
+						</a>
+					</div>
+					<div class="hero__column column">
+						<div class="hero__img image-wrapper">
+							<picture>
+								<source type="image/svg+xml" srcset="img/Content/Hero.svg">
+								<img src="img/Content/Hero.png" />
+							</picture>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Hero end -->
+
+			<!-- Feature start -->
+			<div class="feature">
+				<h2 class="feature-main-title">
+					We design tools to unveil your superpowers
+				</h2>
+				<div class="feature__row row">
+					<div class="feature__column column">
+						<span class="feature__icon feature__icon--violet">
+							<img type="image/svg+xml" src="img/Icons/Arrow.svg" alt="">
+						</span>
+						<h3 class="feature__title">First click tests</h3>
+						<p class="feature__text">While most people enjoy casino gambling,</p>
+					</div>
+					<div class="feature__column column">
+						<span class="feature__icon feature__icon--yellow">
+							<img type="image/svg+xml" src="img/Icons/Stumbleupon.svg" alt="">
+						</span>
+						<h3 class="feature__title">Design surveys</h3>
+						<p class="feature__text">
+							Sports betting, lottery and bingo playing for the fun
+						</p>
+					</div>
+					<div class="feature__column column">
+						<span class="feature__icon feature__icon--red">
+							<img type="image/svg+xml" src="img/Icons/Heart.svg" alt="">
+						</span>
+						<h3 class="feature__title">Preference tests</h3>
+						<p class="feature__text">The Myspace page defines the individual.</p>
+					</div>
+					<div class="feature__column column">
+						<span class="feature__icon feature__icon--blue">
+							<img type="image/svg+xml" src="img/Icons/Hourglass.svg" alt="">
+						</span>
+						<h3 class="feature__title">Five second tests</h3>
+						<p class="feature__text">
+							Personal choices and the overall personality of the person.
+						</p>
+					</div>
+				</div>
+				<a href="#" class="feature__button button button--accent">Sign Up Now</a>
+				<svg
+					class="feature-back"
+					width="1400"
+					height="390"
+					viewBox="0 0 1400 390"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg">
+					<path
+						fill-rule="evenodd"
+						clip-rule="evenodd"
+						d="M692.343 389.999C207.738 390.592 -278.12 117.037 -420.409 30.006C-433.049 22.2748 -427.495 3.7159 -412.678 3.69775L1811.89 0.973177C1826.75 0.95498 1832.32 19.5737 1819.62 27.2901C1675.79 114.702 1184.69 389.396 692.343 389.999Z"
+						fill="url(#paint0_linear)" />
+					<defs>
+						<linearGradient
+							id="paint0_linear"
+							x1="1819.9"
+							y1="388.689"
+							x2="1819.44"
+							y2="-0.328092"
+							gradientUnits="userSpaceOnUse">
+							<stop stop-color="#FFE5D2" stop-opacity="0.629261" />
+							<stop offset="1" stop-color="#FFF4E5" stop-opacity="0.01" />
+						</linearGradient>
+					</defs>
+				</svg>
+			</div>
+			<!-- Feature end -->
+			
+			<!-- Content start -->
+			<div class="content content__row row content-left">
+				<div class="content__column column">
+					<p class="content__title-subject">Effortless Validation for</p>
+					<h2 class="content__title">Design Professionals</h2>
+					<p class="content__text">
+						The Myspace page defines the individual, his or her characteristics,
+						traits, personal choices and the overall personality of the person.
+					</p>
+					<h4 class="content__subtitle">Accessory makers</h4>
+					<p class="content__text">
+						While most people enjoy casino gambling, sports betting, lottery and
+						bingo playing for the fun
+					</p>
+					<h4 class="content__subtitle">Alterationists</h4>
+					<p class="content__text">
+						If you are looking for a new way to herote your business that won’t
+						cost you more money,
+					</p>
+					<h4 class="content__subtitle">Custom Design designers</h4>
+					<p class="content__text">
+						If you are looking for a new way to herote your business that won’t
+						cost you more money,
+					</p>
+				</div>
+				<div class="content__column column">
+					<div class="image-wrapper">
+						<picture>
+							<source type="image/svg+xml" srcset="img/Content/Image-2.svg">
+							<img src="img/Content/Image-2.png" alt="" />
+						</picture>
+					</div>
+				</div>
+			</div>
+
+			<div class="content content__row row content-right">
+				<div class="content__column column">
+					<div class="image-wrapper">
+						<picture>
+							<source type="image/svg+xml" srcset="img/Content/Image-3.svg">
+							<img src="img/Content/Image-3.png" alt="" />
+						</picture>
+					</div>
+				</div>
+				<div class="content__column column">
+					<p class="content__title-subject">Easier decision making for</p>
+					<h2 class="content__title">Product Managers</h2>
+					<p class="content__text">
+						The Myspace page defines the individual, his or her characteristics,
+						traits, personal choices and the overall personality of the person.
+					</p>
+					<ul class="content__list">
+						<li class="content-list__item d-flex space-between">
+							<p>Never worry about overpaying for your energy again.</p>
+						</li>
+						<li class="content-list__item d-flex space-between">
+							<p> We will only switch you to energy companies that we trust and
+								will treat you right
+							</p>
+						</li>
+						<li class="content-list__item d-flex space-between">
+							<p>We track the markets daily and know where the savings are.</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="content content__row row content-left">
+				<div class="content__column column">
+					<p class="content__title-subject">Optimisation for</p>
+					<h2 class="content__title">Marketers</h2>
+					<p class="content__text">
+						Few would argue that, despite the advancements of feminism over the
+						past three decades, women still face a double standard when it comes
+						to their behavior.
+					</p>
+					<h4 class="content__subtitle">Accessory makers</h4>
+					<p class="content__text">
+						While most people enjoy casino gambling, sports betting, lottery and
+						bingo playing for the fun
+					</p>
+					<h4 class="content__subtitle">Alterationists</h4>
+					<p class="content__text">
+						If you are looking for a new way to herote your business that won’t
+						cost you more money,
+					</p>
+					<h4 class="content__subtitle">Custom Design designers</h4>
+					<p class="content__text">
+						If you are looking for a new way to herote your business that won’t
+						cost you more money,
+					</p>
+				</div>
+				<div class="content__column column">
+					<div class="image-wrapper">
+						<picture>
+							<source type="image/svg+xml" srcset="img/Content/Image-4.svg">
+							<img src="img/Content/Image-4.png" />
+						</picture>
+					</div>
+				</div>
+			</div>
+			<!-- Content end -->
+
+			<!-- Team start -->
+			<div class="team">
+				<div class="team__contact-block contact-block">
+					<h2 class="content__title">Need a super hero?</h2>
+					<p class="content__text contact-block__text">
+						Do you require some help for your project: Conception workshop,
+						prototyping, marketing strategy, landing page, Ux/UI?
+					</p>
+					<a href="#" class="button button--accent">Contact our expert</a>
+				</div>
+				<ul class="team__list">
+					<li class="team__list-item item-left member-1">
+						<p><span class="team__text">I can design you website</span></p>
+						<div class="team__avatar">
+							<img src="img/Avatars/Avatar-1.png" alt="" />
+						</div>
+					</li>
+					<li class="team__list-item item-left member-2">
+						<p><span class="team__text">I will define the profile of your users</span></p>
+						<div class="team__avatar">
+							<img src="img/Avatars/Avatar-2.png" alt="" />
+						</div>
+					</li>
+					<li class="team__list-item item-left member-3">
+						<p><span class="team__text">I can help marketing strategy</span></p>
+						<div class="team__avatar">
+							<img src="img/Avatars/Avatar-3.png" alt="" />
+						</div>
+					</li>
+					<li class="team__list-item item-left member-4">
+						<p><span class="team__text">I can prototype your app</span></p>
+						<div class="team__avatar">
+							<img src="img/Avatars/Avatar-4.png" alt="" />
+						</div>
+					</li>
+					<li class="team__list-item item-right member-5">
+						<p><span class="team__text">I can take care of your pitch</span></p>
+						<div class="team__avatar">
+							<img src="img/Avatars/Avatar-5.png" alt="" />
+						</div>
+					</li>
+				</ul>
+				<svg
+					class="team-back"
+					width="1400"
+					height="835"
+					viewBox="0 0 1400 835"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg">
+					<path
+						fill-rule="evenodd"
+						clip-rule="evenodd"
+						d="M715 835C1236.91 835 1660 648.079 1660 417.5C1660 186.921 1236.91 0 715 0C193.091 0 -230 186.921 -230 417.5C-230 648.079 193.091 835 715 835Z"
+						fill="url(#paint0_linear)" />
+					<defs>
+						<linearGradient
+							id="paint0_linear"
+							x1="-242.739"
+							y1="2.81404"
+							x2="-240.252"
+							y2="837.845"
+							gradientUnits="userSpaceOnUse">
+							<stop stop-color="#FFE5D2" stop-opacity="0.629261" />
+							<stop offset="1" stop-color="#FFF4E5" stop-opacity="0.01" />
+						</linearGradient>
+					</defs>
+				</svg>
+			</div>
+			<!-- Team end -->
+
+			<!-- blog list start -->
+			<div class="blog">
+				<h2 class="blog__title content__title">Marketing Strategies</h2>
+				<p class="blog__text content__text">
+					Join 40,000+ other marketers and get proven strategies on email
+					marketing
+				</p>
+				<ul class="blog__list">
+					<li class="blog__list-item">
+						<div class="blog__image image-wrapper">
+							<picture>
+								<source srcset="img/Blogposts/blogpost-1.webp">
+								<img src="img/Blogposts/blogpost-1.jpg" />
+							</picture>
+						</div>
+						<div class="blog__block">
+							<p class="publication-author">By <span>Abdullah</span></p>
+							<p class="publication-date">03 March 2019</p>
+							<a href="#" class="publication__link">
+								Increasing Prosperity With Positive
+							</a>
+						</div>
+					</li>
+					<li class="blog__list-item">
+						<div class="blog__image image-wrapper">
+							<picture>
+								<source srcset="img/Blogposts/blogpost-2.webp">
+								<img src="img/Blogposts/blogpost-2.jpg" />
+							</picture>
+						</div>
+						<div class="blog__block">
+							<p class="publication-author">By <span>Abdullah</span></p>
+							<p class="publication-date">03 March 2019</p>
+							<a href="#" class="publication__link publication__link--active">
+								Motivation Is The First Step To Success
+							</a>
+						</div>
+					</li>
+					<li class="blog__list-item">
+						<div class="blog__image image-wrapper">
+							<picture>
+								<source srcset="img/Blogposts/blogpost-3.webp">
+								<img src="img/Blogposts/blogpost-3.jpg" />
+							</picture>
+						</div>
+						<div class="blog__block">
+							<p class="publication-author">By <span>Abdullah</span></p>
+							<p class="publication-date">03 March 2019</p>
+							<a href="#" class="publication__link">
+								Success Steps For Your Personal Or Business Life
+							</a>
+						</div>
+					</li>
+					<li class="blog__list-item">
+						<div class="blog__image image-wrapper">
+							<picture>
+								<source srcset="img/Blogposts/blogpost-1.webp">
+								<img src="img/Blogposts/blogpost-1.jpg" />
+							</picture>
+						</div>
+						<div class="blog__block">
+							<p class="publication-author">By <span>Abdullah</span></p>
+							<p class="publication-date">03 March 2019</p>
+							<a href="#" class="publication__link">
+								Increasing Prosperity With Positive
+							</a>
+						</div>
+					</li>
+					<li class="blog__list-item">
+						<div class="blog__image image-wrapper">
+							<picture>
+								<source srcset="img/Blogposts/blogpost-2.webp">
+								<img src="img/Blogposts/blogpost-2.jpg" />
+							</picture>
+						</div>
+						<div class="blog__block">
+							<p class="publication-author">By <span>Abdullah</span></p>
+							<p class="publication-date">03 March 2019</p>
+							<a href="#" class="publication__link publication__link--active">
+								Motivation Is The First Step To Success
+							</a>
+						</div>
+					</li>
+					<li class="blog__list-item">
+						<div class="blog__image image-wrapper">
+							<picture>
+								<source srcset="img/Blogposts/blogpost-3.webp">
+								<img src="img/Blogposts/blogpost-3.jpg" />
+							</picture>
+						</div>
+						<div class="blog__block">
+							<p class="publication-author">By <span>Abdullah</span></p>
+							<p class="publication-date">03 March 2019</p>
+							<a href="#" class="publication__link">
+								Success Steps For Your Personal Or Business Life
+							</a>
+						</div>
+					</li>
+					<li class="blog__list-item">
+						<div class="blog__image image-wrapper">
+							<picture>
+								<source srcset="img/Blogposts/blogpost-1.webp">
+								<img src="img/Blogposts/blogpost-1.jpg" />
+							</picture>
+						</div>
+						<div class="blog__block">
+							<p class="publication-author">By <span>Abdullah</span></p>
+							<p class="publication-date">03 March 2019</p>
+							<a href="#" class="publication__link">
+								Increasing Prosperity With Positive
+							</a>
+						</div>
+					</li>
+					<li class="blog__list-item">
+						<div class="blog__image image-wrapper">
+							<picture>
+								<source srcset="img/Blogposts/blogpost-2.webp">
+								<img src="img/Blogposts/blogpost-2.jpg" />
+							</picture>
+						</div>
+						<div class="blog__block">
+							<p class="publication-author">By <span>Abdullah</span></p>
+							<p class="publication-date">03 March 2019</p>
+							<a href="#" class="publication__link publication__link--active">
+								Motivation Is The First Step To Success
+							</a>
+						</div>
+					</li>
+					<li class="blog__list-item">
+						<div class="blog__image image-wrapper">
+							<picture>
+								<source srcset="img/Blogposts/blogpost-3.webp">
+								<img src="img/Blogposts/blogpost-3.jpg" />
+							</picture>
+						</div>
+						<div class="blog__block">
+							<p class="publication-author">By <span>Abdullah</span></p>
+							<p class="publication-date">03 March 2019</p>
+							<a href="#" class="publication__link">
+								Success Steps For Your Personal Or Business Life
+							</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!-- blog list end -->
+
+		</main>
+
+		<footer class="footer container">
+			<div class="footer__row row">
+				<div class="footer__column column">
+					<a href="#" class="brand-logo">
+						<img class="brand-logo-icon" type="image/svg+xml" src="img/Icons/logo-icon.svg" alt="" />
+						Productly
+					</a>
+				</div>
+				<div class="footer__column column">
+					<p class="footer__title">Quick Links</p>
+					<ul>
+						<li class="footer__list-item">
+							<a href="" class="footer__links">About Us</a>
+						</li>
+						<li class="footer__list-item">
+							<a href="" class="footer__links">Blog</a>
+						</li>
+						<li class="footer__list-item">
+							<a href="" class="footer__links">Contact</a>
+						</li>
+						<li class="footer__list-item">
+							<a href="" class="footer__links">FAQ</a>
+						</li>
+					</ul>
+				</div>
+				<div class="footer__column column">
+					<p class="footer__title">Legal Stuff</p>
+					<ul>
+						<li class="footer__list-item">
+							<a href="" class="footer__links">Disclaimer</a>
+						</li>
+						<li class="footer__list-item">
+							<a href="" class="footer__links">Financing</a>
+						</li>
+						<li class="footer__list-item">
+							<a href="" class="footer__links">Privacy Policy</a>
+						</li>
+						<li class="footer__list-item">
+							<a href="" class="footer__links">Terms of Service</a>
+						</li>
+					</ul>
+				</div>
+				<div class="footer__column column">
+					<p class="footer__title">
+						knowing you're always on the best energy deal.
+					</p>
+					<form action="" class="footer__form">
+						<input
+							class="footer-form__input"
+							type="tel"
+							name="phone-number"
+							placeholder="Enter your phone Number"
+						/>
+						<input
+							class="footer-form__button button button--accent"
+							type="submit"
+							name="submit"
+							value="Sign up Now"
+						/>
+					</form>
+				</div>
+			</div>
+		</footer>
+
+		<!-- JQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+		<!-- Slick carousel -->
+		<script src="slick/slick.min.js" async defer></script>
+
+		<script src="js/script.min.js"></script>
+	</body>
+</html>
