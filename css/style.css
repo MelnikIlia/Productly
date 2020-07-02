@@ -172,7 +172,7 @@
   content: '';
   width: 36px;
   height: 36px;
-  background: url("/img/Icons/Bulletz.svg") center no-repeat;
+  background: url("../img/Icons/Bulletz.svg") center no-repeat;
 }
 
 .content-list__item p {
